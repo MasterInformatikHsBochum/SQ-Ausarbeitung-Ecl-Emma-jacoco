@@ -5,6 +5,7 @@
 \usepackage{graphicx}
 \usepackage{fancyhdr}
 \usepackage{alltt}
+\usepackage{textcomp}
 \pagestyle{fancy}
 \fancyhead[R]{Mario Groneick, Marcel Brockskothen}
 \fancyfoot[R]{\includegraphics[width=3cm]{logo_hs_bochum}}
@@ -18,10 +19,53 @@ Seit Version 2.0 basiert Ecl-Emma auf der Jacoco Testabdeckungs Bibliothek für 
 Davor basierste es auf der Emma Bibliotheck von Vlad Roubtsov. Das Ecl-Emma-Plugin unterstützt
 sowohl Junit als auch TestNG als Testframework.
 \subsection{Installation von Ecl-Emma-Jacoco}
+EclEmma ist als direktes Eclipse Plugin verfügbar und kann über den Marketplace installiert werden. 
+\begin{figure}[h]
+\includegraphics[scale=0.5]{EclEmma_Marketplace.png}
+\caption{EclEmma im Marketplace}
+\centering
+\end{figure}
+Zusätzlich lässt sich Jacoco auch über Maven dependencies als Plug-In einbinden, dabei ist dann zu beachten, dass nur Jacoco eingebunden worden ist und nicht Ecl-Emma. 
 \subsection{Nutzung von Ecl-Emma-Jacoco}
+Nach der Installation kann EclEmma direkt „out-of-box“ genutzt werden um die Testüberdeckung zu messen oder man kann es weiter Konfigurieren, so lassen sich Ordner aus der Messung exkludieren oder inkludieren. EclEmma funktioniert sowohl mit JUnit-tests als auch mit TestNG-tests und zusätzlich werden externe Testframeworks von EclEmma ebenfalls berücksichtigt. Dies wurde mit dem JavaFX UI-Testframework „testFx“ getestet. 
+\bigbreak
+Um die Abdeckung zu starten, muss man die Tests dann über den neuen Button in der Toolbar „Coverage“ oder „Rechtsklick \textrightarrow{} Coverage As …“ ausführen. Nachdem die Tests durchgelaufen sind wird der Code, der getestet worden ist, farblich gekennzeichnet, Rot, Gelb oder Grün. Rot gekennzeichnete Zeilen wurden von dem Test nicht getroffen und gelten entsprechend als nicht getestet. Gelbe Kennzeichnungen sind Bedingte Anweisungen, bei dem der Test keine vollständige Abdeckung der möglichen Bedingungen bietet. Grün gekennzeichnete Zeilen sind vollständig von dem Test abgedeckt.
+\begin{figure}[h]
+\includegraphics[scale=1.0]{Highlightning.png}
+\caption{Inline Text Highlightning von Ecl-Emma}
+\centering
+\end{figure}
+\bigbreak
+Um eine bessere Übersicht für das Projekt zu haben, bietet das Plugin zusätzlich noch eine neue View an, die, wenn sie nicht bei der Installation hinzugefügt worden ist, über „Window \textrightarrow{} Show View \textrightarrow{} Other… \textrightarrow{} Coverage“ angezeigt werden lassen kann. 
+\begin{figure}[h]
+\includegraphics[scale=0.40]{Coverage_View.png}
+\caption{Coverage Overview in Eclipse}
+\centering
+\end{figure}
 \subsection{Theoretische Testabdeckung und Ecl-Emma}
 \section{Bistro-Verwaltungs-App}
+Um Ecl-Emma vorzustellen wurde im Rahmen des Moduls eine Demo entwickelt. 
+Die Demo ist eine Bistro-Verwaltungs App in der, der Nutzer vorgegebene Menüs auswählen kann, sich einen eigenen Salat zusammenstellen kann aus mehreren Rubriken. Zusätzlich kann der Nutzer den Gesamtbetrag der Bestellung berechnen lassen als auch Trinkgeld, in Höhe von 10\% des Gesamtbetrags, geben.
 \section{Testabdeckung der Bistro-Verwaltungs-App}
+Für die Demo wurden zwei Testklassen geschrieben, eine mit dem JUnit Framework, die andere mit TestNG. Beide Testklassen decken unterschiedliche Bereiche der Demo ab. 
+In der JUnit Testklasse wird zusätzlich zu dem JUnit Framework noch das externe Framework „testFX“ benutzt um UI Tests von einer JavaFX Anwendung durchzuführen.
+Die jeweiligen Testklassen haben eine Testabdeckung von 53\% für den JUnit Test und eine 19,2\% Abdeckung für TestNG. 
+Hierbei ist wie schon erwähnt zu beachten, dass Ecl-Emma keine Pfadüberdeckung durchführt sondern ausschließlich Zweigabdeckung. 
+\begin{figure}[h]
+\includegraphics[scale=0.60 ]{Testabdeckung_JUnit.png}
+\caption{Testabdeckung mit JUnit Tests}
+\includegraphics[scale=0.60]{Testabdeckung_TestNG.png}
+\caption{Testabdeckung mit TestNG Tests}
+\centering
+\end{figure}
+
+\begin{figure}[h]
+\includegraphics[scale=0.6]{Merged_Abdeckung.png}
+\caption{JUnit Test Abdeckung und TestNG Abdeckung gemerged}
+\centering
+\end{figure}
+Mit dem Ecl-Emma Plug-in lassen sich die beiden Abdeckungen mergen um eine Übersicht über den Gesamtabdeckungsgrad der beiden Testklassen zu bekommen. Der Abdeckungsgrad des Projekts nach dem Merge durch Ecl-Emma liegt bei 57.7\%. 
+
 \section{Fazit}
 \begin{thebibliography}{1}
 	\bibitem{hoff} \emph{Software Qualität, Dirk Hoffman} (2006)
