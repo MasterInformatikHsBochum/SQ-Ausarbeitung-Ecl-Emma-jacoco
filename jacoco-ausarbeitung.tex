@@ -3,6 +3,7 @@
 \usepackage{verbatim}
 \usepackage{german}
 \usepackage{graphicx}
+\usepackage{parskip}
 \usepackage{fancyhdr}
 \usepackage{alltt}
 \usepackage{textcomp}
@@ -67,7 +68,14 @@ Hierbei ist wie schon erwähnt zu beachten, dass Ecl-Emma keine Pfadüberdeckung
 \centering
 \end{figure}
 Mit dem Ecl-Emma Plug-in lassen sich die beiden Abdeckungen mergen um eine Übersicht über den Gesamtabdeckungsgrad der beiden Testklassen zu bekommen. Der Abdeckungsgrad des Projekts nach dem Merge durch Ecl-Emma liegt bei 57.7\%. 
+\newpage
 \section{Fazit}
+Ecl-Emma-Jacoco ist ein Testabdeckungstool das sich leicht in Eclipse über den Marketplace installieren lässt. Zusätzlich ist die Bedienung des Tools sehr einfach.
+Man muss zum Beispiel nicht diverse zusätzliche Java-Klassen mit ins Projekt mit einbinden. Das Tool prüft nicht die Sinnhaftigkeit von Tests, gute Testfalle zu erstellen liegt daher weiter in den Händen des Entwicklers.
+Ecl-Emma-Jacoco kann die Anweisungsüberdeckung und die Zweigüberdeckung messen. Wünschenwert wäre auch die Möglichkeit gewesen teile der Pfadüberdeckung messen zu können. Dadurch wäre das Tool aber sicherlich deutlich 
+komplexer geworden, was dann wahrscheinlich in einer schwierigeren Bedienbarkeit resultieren würde. 
+\par
+Zusammengefasst ist Ecl-Emma-Jacoco ein einfaches, schnell zu installierendes Tool, was in Java-Projekten dabei helfen kann die Testüberdeckung zu verbessern und damit auch die Qualität des gesamten Quellcodes signifikant erhöhen kann.
 \begin{thebibliography}{1}
 	\bibitem{hoff} \emph{Software Qualität, Dirk Hoffman} (2006)
 	\bibitem{wiki} \emph{https://de.wikipedia.org/wiki/Kontrollflussorientierte\_Testverfahren} Zugriff 16.6.2018
